@@ -2,7 +2,7 @@
 
 A REST API built with Node.js and Express to manage a personal reading library. It includes a custom minimalist frontend (Sage & Mauve theme) to track reading progress, completion status, and personal reflections.
 
-**Live demo:** [https://shri-library-api.onrender.com](https://shri-library-api.onrender.com) *(Update this link to your actual Render URL)*
+**Live demo:** [https://shri-library-api.onrender.com](https://shri-library-api.onrender.com)
 
 ## Features
 
@@ -22,15 +22,17 @@ Node.js, Express, HTML/CSS/Vanilla JavaScript. Deployed on Render.
    ```bash
    git clone [https://github.com/innocentshri/T3.BookManagementAPI.WebDevIntern.git](https://github.com/innocentshri/T3.BookManagementAPI.WebDevIntern.git)
    cd T3.BookManagementAPI.WebDevIntern
-
-2. Install Dependencies:
-    npm install
-
-3. Run the server:
-    npm start
-
-4. View the App:
-    Open http://localhost:3000 in your browser.
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the server:**
+   ```bash
+   npm start
+   ```
+4. **View the app:**
+   Open `http://localhost:3000` in your browser.
 
 ## API Endpoints
 
@@ -53,12 +55,18 @@ When sending a `POST` or `PUT` request, send a JSON payload. `title` and `author
   "readPages": 105,
   "notes": "Practical stoic philosophy."
 }
+```
 
-Error Handling
+### Error Handling
 Missing fields or targeting a non-existent ID returns appropriate HTTP status codes (400, 404) with a JSON error message:
-{ "error": "Book not found." }
 
-Project Structure
+```json
+{ "error": "Book not found." }
+```
+
+## Project Structure
+
+```text
 T3.BookManagementAPI.WebDevIntern/
 ├── server.js             # Express server API routing and data logic
 ├── package.json          # Project metadata and dependencies
@@ -66,7 +74,8 @@ T3.BookManagementAPI.WebDevIntern/
     ├── index.html        # UI Layout
     ├── style.css         # Minimalist Sage/Mauve styling
     └── script.js         # Frontend fetch logic and DOM manipulation
+```
 
+## Note
 
-Note
 Data is currently stored in-memory using an array. All data resets when the Node server restarts or when Render spins down the free-tier instance after inactivity.
