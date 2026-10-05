@@ -1,0 +1,102 @@
+body { 
+    font-family: 'Courier New', Courier, monospace; 
+    background-color: #f7f8f6; /* Off-white */
+    color: #2b3026; 
+    display: flex; 
+    justify-content: center; 
+    padding: 3rem 1rem; 
+    margin: 0; 
+}
+.container { max-width: 650px; width: 100%; }
+h1 { font-size: 2rem; border-bottom: 2px solid #2b3026; padding-bottom: 0.5rem; margin-bottom: 2rem; }
+
+.form-group { background: #fff; border: 1px solid #d5d9d2; padding: 1.5rem; margin-bottom: 2rem; }
+.input-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+input, select, textarea { 
+    font-family: inherit;
+    padding: 0.75rem; 
+    border: 1px solid #d5d9d2; 
+    background: #f7f8f6;
+    outline: none; 
+}
+input { flex: 1; }
+textarea { width: 100%; resize: vertical; min-height: 80px; margin-bottom: 0.5rem; box-sizing: border-box; }
+input:focus, select:focus, textarea:focus { border-color: #7b8b6f; }
+
+button.add-btn { 
+    background-color: #7b8b6f; /* Sage Green */
+    color: white; 
+    border: none; 
+    padding: 0.75rem 1.5rem; 
+    font-family: inherit;
+    font-weight: bold; 
+    cursor: pointer; 
+    width: 100%;
+    transition: background 0.2s; 
+}
+button.add-btn:hover { background-color: #647359; }
+
+.book-list { list-style: none; padding: 0; margin: 0; }
+.book-item { 
+    background: #fff; 
+    padding: 1.5rem; 
+    border: 1px solid #d5d9d2;
+    border-left: 6px solid #7b8b6f; /* Sage Green Indicator */
+    margin-bottom: 1rem; 
+}
+.book-item.completed { border-left-color: #8b6f7b; /* Complementary Mauve Indicator */ }
+
+.book-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.book-info h3 { margin: 0 0 0.25rem 0; font-size: 1.2rem; }
+.book-info p { margin: 0; color: #5a6652; font-size: 0.9rem; }
+.status-badge { 
+    display: inline-block; 
+    font-size: 0.75rem; 
+    padding: 0.2rem 0.5rem; 
+    background: #e4e7e1; 
+    border-radius: 12px; 
+    margin-top: 0.5rem; 
+}
+.notes-display { background: #f7f8f6; padding: 1rem; border-left: 2px solid #d5d9d2; font-size: 0.9rem; margin-bottom: 1rem; white-space: pre-wrap; }
+
+.actions { display: flex; gap: 1rem; }
+.actions button { 
+    background: none; 
+    border: none; 
+    font-family: inherit;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    cursor: pointer; 
+    padding: 0;
+}
+.edit-btn { color: #7b8b6f; font-weight: bold; }
+.delete-btn { color: #8b6f7b; font-weight: bold; }
+.actions button:hover { opacity: 0.7; }
+
+/* Progress Bar Styles */
+.progress-container {
+    width: 100%;
+    background-color: #e4e7e1;
+    height: 6px;
+    margin: 1rem 0 0.5rem 0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #7b8b6f; /* Sage Green */
+    transition: width 0.3s ease;
+}
+
+.completed .progress-bar {
+    background-color: #8b6f7b; /* Mauve when finished */
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: #5a6652;
+    text-align: right;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
