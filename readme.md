@@ -41,8 +41,10 @@ Node.js, Express, HTML/CSS/Vanilla JavaScript. Deployed on Render.
 | PUT | `/books/:id` | Update an existing book's details or progress | 200 |
 | DELETE | `/books/:id` | Remove a book from the library | 204 |
 
-Request Body (POST & PUT)
-When sending a POST or PUT request, send a JSON payload. title and author are required for POST.
+### Request Body (POST & PUT)
+When sending a `POST` or `PUT` request, send a JSON payload. `title` and `author` are required for POST.
+
+```json
 {
   "title": "Meditations",
   "author": "Marcus Aurelius",
