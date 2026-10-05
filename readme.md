@@ -1,76 +1,70 @@
-Books REST API
-A simple REST API for managing books, built with Node.js and Express. It includes a small frontend to add, edit and delete books from the browser.
+# Personal Library REST API (T3.BookManagementAPI)
 
-Live demo: https://vibelary-shelf.onrender.com
+A REST API built with Node.js and Express to manage a personal reading library. It includes a custom minimalist frontend (Sage & Mauve theme) to track reading progress, completion status, and personal reflections.
 
-Frontend
+**Live demo:** [https://shri-library-api.onrender.com](https://shri-library-api.onrender.com) *(Update this link to your actual Render URL)*
 
-Features
-Full CRUD for books (create, read, update, delete)
-Input validation with clear error messages
-Proper HTTP status codes (200, 201, 204, 400, 404, 500)
-Custom error-handling middleware
-CORS enabled
-Simple frontend served from the same server
-Tech stack
-Node.js, Express, CORS, HTML/CSS/JavaScript, Postman for testing.
+## Features
 
-Getting started
-git clone https://github.com/YOUR_USERNAME/books-api.git
-cd books-api
-npm install
-npm start
-Open http://localhost:3000 in your browser.
+* **Full CRUD Operations:** Create, read, update, and delete books.
+* **Progress Tracking:** Log pages read against total pages; dynamic progress bars.
+* **Status Automation:** Automatically shifts status from 'To Read' to 'Reading' or 'Completed' based on page count.
+* **Reflections:** Store custom notes and reviews for each book.
+* **Integrated UI:** Frontend served directly from the Express backend via `express.static`.
 
-API endpoints
-Method	Endpoint	Description	Success
-GET	/books	Get all books	200
-GET	/books/:id	Get one book	200
-POST	/books	Create a book	201
-PUT	/books/:id	Update a book	200
-DELETE	/books/:id	Delete a book	204
-Request body for POST and PUT:
+## Tech Stack
 
+Node.js, Express, HTML/CSS/Vanilla JavaScript. Deployed on Render.
+
+## Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/innocentshri/T3.BookManagementAPI.WebDevIntern.git](https://github.com/innocentshri/T3.BookManagementAPI.WebDevIntern.git)
+   cd T3.BookManagementAPI.WebDevIntern
+
+2. Install Dependencies:
+    npm install
+
+3. Run the server:
+    npm start
+
+4. View the App:
+    Open http://localhost:3000 in your browser.
+
+## API Endpoints
+
+| Method | Endpoint | Description | Success |
+| :--- | :--- | :--- | :--- |
+| GET | `/books` | Retrieve all books in the library | 200 |
+| POST | `/books` | Add a new book to the library | 201 |
+| PUT | `/books/:id` | Update an existing book's details or progress | 200 |
+| DELETE | `/books/:id` | Remove a book from the library | 204 |
+
+Request Body (POST & PUT)
+When sending a POST or PUT request, send a JSON payload. title and author are required for POST.
 {
-  "title": "Dune",
-  "author": "Frank Herbert"
+  "title": "Meditations",
+  "author": "Marcus Aurelius",
+  "status": "Reading",
+  "totalPages": 254,
+  "readPages": 105,
+  "notes": "Practical stoic philosophy."
 }
-Error responses look like this:
 
-{ "error": "Book not found" }
-Testing with Postman
-All endpoints were tested in Postman.
+Error Handling
+Missing fields or targeting a non-existent ID returns appropriate HTTP status codes (400, 404) with a JSON error message:
+{ "error": "Book not found." }
 
-GET all books
+Project Structure
+T3.BookManagementAPI.WebDevIntern/
+├── server.js             # Express server API routing and data logic
+├── package.json          # Project metadata and dependencies
+└── public/               # Static frontend directory
+    ├── index.html        # UI Layout
+    ├── style.css         # Minimalist Sage/Mauve styling
+    └── script.js         # Frontend fetch logic and DOM manipulation
 
-GET all books
 
-GET one book
-
-GET one book
-
-POST create a book
-
-POST create book
-
-PUT update a book
-
-PUT update book
-
-DELETE a book
-
-DELETE book
-
-Error cases (404 and 400)
-
-404 not found 400 bad request
-
-Project structure
-books-api/
-├── server.js        # Express server and API routes
-├── package.json
-├── public/
-│   └── index.html   # Frontend
-└── screenshots/     # Postman and frontend screenshots
 Note
-Data is stored in memory, so it resets when the server restarts.
+Data is currently stored in-memory using an array. All data resets when the Node server restarts or when Render spins down the free-tier instance after inactivity.
